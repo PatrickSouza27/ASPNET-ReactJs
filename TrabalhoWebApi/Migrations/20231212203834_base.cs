@@ -5,24 +5,24 @@
 namespace TrabalhoWebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class Base : Migration
+    public partial class @base : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Carro",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "NVARCHAR", maxLength: 60, nullable: false),
-                    Cpf = table.Column<string>(type: "NVARCHAR", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "NVARCHAR", maxLength: 60, nullable: false)
+                    Marca = table.Column<string>(type: "NVARCHAR", maxLength: 20, nullable: false),
+                    Ano = table.Column<string>(type: "NVARCHAR", maxLength: 60, nullable: false),
+                    Modelo = table.Column<string>(type: "NVARCHAR", maxLength: 60, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Carro", x => x.Id);
                 });
         }
 
@@ -30,7 +30,7 @@ namespace TrabalhoWebApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Carro");
         }
     }
 }

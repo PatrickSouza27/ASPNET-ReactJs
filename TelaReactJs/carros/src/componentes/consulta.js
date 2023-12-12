@@ -6,7 +6,7 @@ export default function Consulta(){
 
 
     function consultar(){
-        fetch('https://localhost:7189/user')
+        fetch('https://localhost:7189/carro')
         .then(data => data.json())
         .then(response => setProdutos(response))
     }

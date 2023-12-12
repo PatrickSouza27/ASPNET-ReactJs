@@ -3,27 +3,27 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 
 export default function EditaProduto() {
-    const [name, setName] = useState('')
-    const [cpf, setCpf] = useState('')
-    const [email, setEmail] = useState('')
+    const [modelo, setModelo] = useState('')
+    const [ano, setAno] = useState('')
+    const [marca, setMarca] = useState('')
     
-    const { iduser } = useParams()
+    const { idcarro } = useParams()
     
     const navigate = useNavigate()
 
     useEffect(()=>{
-        fetch(`https://localhost:7189/user/${iduser}`)
+        fetch(`https://localhost:7189/carro/${idcarro}`)
         .then(data => data.json())
         .then(response => {
-          setName(response.name)
-          setCpf(response.cpf)
-          setEmail(response.email)
+          setModelo(response.modelo)
+          setAno(response.ano)
+          setMarca(response.marca)
         })
     },[])
 
     function salvar() {
-        let prod = {id: iduser, name, cpf, email}
-        fetch(`https://localhost:7189/user/${iduser}`,
+        let prod = {id: idcarro, modelo, ano, marca}
+        fetch(`https://localhost:7189/carro/${idcarro}`,
             {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -36,31 +36,31 @@ export default function EditaProduto() {
 
     return (
         <div className="container">
-            <h1 className="text-center mt-4">Editar ID: { iduser } </h1>
-            <label className="form-label">Informe descrição</label>
+            <h1 className="text-center mt-4">Editar carro: { idcarro } </h1>
+            <label className="form-label">Informe Modelo</label>
             <input
                 className="form-control"
                 type="text"
                 placeholder="informe nome"
-                value={name}
-                onChange={(txt) => setName(txt.target.value)}
+                value={modelo}
+                onChange={(txt) => setModelo(txt.target.value)}
             />
-            <label className="form-label">Informe cpf</label>
+            <label className="form-label">Informe Marca</label>
             <input
                 className="form-control"
                 type="text"
                 placeholder="informe valor"
-                value={cpf}
-                onChange={(txt) => setCpf(txt.target.value)}
+                value={marca}
+                onChange={(txt) => setMarca(txt.target.value)}
             />
 
-            <label className="form-label">Informe email</label>
+            <label className="form-label">Informe Ano</label>
             <input
                 className="form-control"
                 type="text"
                 placeholder="informe email"
-                value={email}
-                onChange={(txt) => setEmail(txt.target.value)}
+                value={ano}
+                onChange={(txt) => setAno(txt.target.value)}
             />
             <button
                 className="btn btn-primary mt-2"

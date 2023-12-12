@@ -4,11 +4,11 @@ using TrabalhoWebApi.Models;
 
 namespace TrabalhoWebApi.Data.Mapping
 {
-    public class UserMapping : IEntityTypeConfiguration<User>
+    public class CarroMaping : IEntityTypeConfiguration<Carro>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Carro> builder)
         {
-            builder.ToTable(nameof(User));
+            builder.ToTable(nameof(Carro));
 
             builder.HasKey(x => x.Id);
 
@@ -16,23 +16,23 @@ namespace TrabalhoWebApi.Data.Mapping
                 .ValueGeneratedOnAdd()
                 .HasColumnType("INTEGER");
 
-            builder.Property(x => x.Name)
+            builder.Property(x => x.Modelo)
                 .IsRequired()
-                .HasColumnName("Name")
+                .HasColumnName("Modelo")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(60);
 
 
-            builder.Property(x => x.Cpf)
+            builder.Property(x => x.Marca)
                 .IsRequired()
-                .HasColumnName("Cpf")
+                .HasColumnName("Marca")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(20);
 
 
-            builder.Property(x => x.Email)
+            builder.Property(x => x.Ano)
                 .IsRequired()
-                .HasColumnName("Email")
+                .HasColumnName("Ano")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(60);
         }

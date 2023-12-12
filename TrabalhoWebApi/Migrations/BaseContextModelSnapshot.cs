@@ -16,33 +16,33 @@ namespace TrabalhoWebApi.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
 
-            modelBuilder.Entity("TrabalhoWebApi.Models.User", b =>
+            modelBuilder.Entity("TrabalhoWebApi.Models.Carro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Cpf")
+                    b.Property<string>("Ano")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Ano");
+
+                    b.Property<string>("Marca")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("Cpf");
+                        .HasColumnName("Marca");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Modelo")
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("Email");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("NVARCHAR")
-                        .HasColumnName("Name");
+                        .HasColumnName("Modelo");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("Carro", (string)null);
                 });
 #pragma warning restore 612, 618
         }

@@ -6,15 +6,15 @@ namespace TrabalhoWebApi.Data
 {
     public class BaseContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<Carro> Carro { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("DataSource=app;Cache=Shared");
+            optionsBuilder.UseSqlite("DataSource=banco;Cache=Shared");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserMapping());
+            modelBuilder.ApplyConfiguration(new CarroMaping());
         }
     }
 }

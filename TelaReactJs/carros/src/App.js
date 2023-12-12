@@ -5,8 +5,8 @@ function App() {
   return (
     <div className="container">
         <nav>
-           <Link to='/user/cadastrar'>Cadastro</Link> &nbsp;&nbsp;
-           <Link to='/user/consultar'>Consulta</Link>
+           <Link to='/carros/cadastrar'>Cadastro</Link> &nbsp;&nbsp;
+           <Link to='/carros/consultar'>Consulta</Link>
         </nav>
         <main>
            <Outlet />

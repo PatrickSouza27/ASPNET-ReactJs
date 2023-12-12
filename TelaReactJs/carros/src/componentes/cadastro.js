@@ -3,8 +3,8 @@ export default function Cadastro() {
     const[nome, setNome] = useState('maria')
     return (
         <div className="container">
-            <h1 className="text-center mt-4">Novo contato</h1>
-            <label className="form-label">Informe nome</label>
+            <h1 className="text-center mt-4">Novo Carro</h1>
+            <label className="form-label">Informe Modelo</label>
             <input 
                 className="form-control" 
                 type="text"
